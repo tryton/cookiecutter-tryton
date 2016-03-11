@@ -3,6 +3,9 @@
 # this repository contains the full copyright notices and license terms.
 
 {% endif -%}
-from .test_{{ cookiecutter.module_name }} import suite
+try:
+    from trytond.modules.{{ cookiecutter.module_name }}.tests.test_{{ cookiecutter.module_name }} import suite
+except ImportError:
+    from .test_{{ cookiecutter.module_name }} import suite
 
 __all__ = ['suite']
