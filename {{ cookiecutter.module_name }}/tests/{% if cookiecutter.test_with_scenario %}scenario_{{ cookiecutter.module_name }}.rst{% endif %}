@@ -17,4 +17,5 @@ Install {{ cookiecutter.module_name }}::
     >>> module, = Module.find([
     ...         ('name', '=', '{{ cookiecutter.module_name }}'),
     ...         ])
+    >>> module.click('install')
     >>> Wizard('ir.module.install_upgrade').execute('upgrade')
