@@ -9,7 +9,8 @@ Features
 
 * Vanilla testing setup with `unittest` and `python setup.py test`
 * Drone_: Ready for Drone Continuous Integration testing
-* Tox_: Setup to easily test for Python 2.7, PyPy, SQlite, PostgreSQL and MySQL
+* Tox_: Setup to easily test for Python (2.7, 3.3, 3.4 and 3.5), PyPy, SQlite,
+  PostgreSQL and MySQL
 
 Quickstart
 ----------
