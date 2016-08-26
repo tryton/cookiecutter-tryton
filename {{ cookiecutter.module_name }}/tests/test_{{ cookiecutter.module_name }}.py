@@ -11,7 +11,7 @@ import doctest
 from trytond.tests.test_tryton import ModuleTestCase
 from trytond.tests.test_tryton import suite as test_suite
 {%- if cookiecutter.test_with_scenario %}
-from trytond.tests.test_tryton import doctest_setup, doctest_teardown
+from trytond.tests.test_tryton import doctest_teardown
 from trytond.tests.test_tryton import doctest_checker
 {%- endif %}
 
@@ -28,7 +28,7 @@ def suite():
     {%- if cookiecutter.test_with_scenario %}
     suite.addTests(doctest.DocFileSuite(
             'scenario_{{ cookiecutter.module_name }}.rst',
-            setUp=doctest_setup, tearDown=doctest_teardown, encoding='utf-8',
+            tearDown=doctest_teardown, encoding='utf-8',
             checker=doctest_checker,
             optionflags=doctest.REPORT_ONLY_FIRST_FAILURE))
     {%- endif %}

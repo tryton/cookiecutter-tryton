@@ -4,18 +4,9 @@
 
 Imports::
 
-    >>> from proteus import config, Model, Wizard
-
-Create a database::
-
-    >>> config = config.set_trytond()
-    >>> config.pool.test = True
+    >>> from proteus import Model, Wizard
+    >>> from trytond.tests.tools import install_modules
 
 Install {{ cookiecutter.module_name }}::
 
-    >>> Module = Model.get('ir.module')
-    >>> module, = Module.find([
-    ...         ('name', '=', '{{ cookiecutter.module_name }}'),
-    ...         ])
-    >>> module.click('install')
-    >>> Wizard('ir.module.install_upgrade').execute('upgrade')
+    >>> config = install_modules('{{ cookiecutter.module_name }}')
