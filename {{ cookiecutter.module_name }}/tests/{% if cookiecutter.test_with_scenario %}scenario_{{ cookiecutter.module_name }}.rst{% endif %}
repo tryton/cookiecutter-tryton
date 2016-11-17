@@ -5,8 +5,8 @@
 Imports::
 
     >>> from proteus import Model, Wizard
-    >>> from trytond.tests.tools import install_modules
+    >>> from trytond.tests.tools import activate_modules
 
 Install {{ cookiecutter.module_name }}::
 
-    >>> config = install_modules('{{ cookiecutter.module_name }}')
+    >>> config = activate_modules('{{ cookiecutter.module_name }}')
