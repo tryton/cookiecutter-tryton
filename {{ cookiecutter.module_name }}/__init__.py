@@ -5,6 +5,8 @@
 {% endif -%}
 from trytond.pool import Pool
 
+__all__ = ['register']
+
 
 def register():
     Pool.register(
