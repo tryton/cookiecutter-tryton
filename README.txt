@@ -4,6 +4,8 @@ cookiecutter-tryton
 
 Cookiecutter_ template for a Tryton module
 
+(requires cookiecutter >= 1.4.0)
+
 Features
 --------
 
