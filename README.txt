@@ -19,7 +19,7 @@ Quickstart
 
 Generate a Tryton module project::
 
-    cookiecutter https://hg.tryton.org/cookiecutter
+    cookiecutter hg+https://hg.tryton.org/cookiecutter
 
 .. _Cookiecutter: https://github.com/audreyr/cookiecutter
 .. _Drone: https://github.com/drone/drone
