@@ -4,7 +4,7 @@
 # this repository contains the full copyright notices and license terms.
 
 {% endif -%}
-from setuptools import setup
+from setuptools import setup, find_packages
 import re
 import os
 import io
@@ -85,10 +85,10 @@ setup(name=name,
 {%- endif %}
     keywords='{{ cookiecutter.keywords }}',
     package_dir={'trytond.modules.{{ cookiecutter.module_name }}': '.'},
-    packages=[
-        'trytond.modules.{{ cookiecutter.module_name }}',
-        'trytond.modules.{{ cookiecutter.module_name }}.tests',
-        ],
+    packages=(
+        ['trytond.modules.{{ cookiecutter.module_name }}'] +
+        ['trytond.modules.{{ cookiecutter.module_name }}.%s' % p for p in find_packages()]
+        ),
     package_data={
         'trytond.modules.{{ cookiecutter.module_name }}': (info.get('xml', [])
             + ['tryton.cfg', 'view/*.xml', 'locale/*.po', '*.fodt',
