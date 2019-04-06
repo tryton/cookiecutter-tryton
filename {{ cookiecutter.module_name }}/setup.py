@@ -32,7 +32,7 @@ def get_require_version(name):
 
 
 config = ConfigParser()
-config.read_file(open('tryton.cfg'))
+config.read_file(open(os.path.join(os.path.dirname(__file__), 'tryton.cfg')))
 info = dict(config.items('tryton'))
 for key in ('depends', 'extras_depend', 'xml'):
     if key in info:
@@ -74,12 +74,18 @@ if minor_version % 2:
 setup(name=name,
     version=version,
     description='{{ cookiecutter.description }}',
-    long_description=read('README'),
+    long_description=read('README.rst'),
     author='{{ cookiecutter.author }}',
     author_email='{{ cookiecutter.author_email }}',
     url='{{ cookiecutter.url }}',
 {%- if not cookiecutter.prefix %}
     download_url=download_url,
+    project_urls={
+        "Bug Tracker": 'https://bugs.tryton.org/',
+        "Documentation": 'https://docs.tryton.org/',
+        "Forum": 'https://www.tryton.org/forum',
+        "Source Code": 'https://hg.tryton.org/modules/{{ cookiecutter.module_name }}',
+        },
 {%- endif %}
     keywords='{{ cookiecutter.keywords }}',
     package_dir={'trytond.modules.{{ cookiecutter.module_name }}': '.'},
