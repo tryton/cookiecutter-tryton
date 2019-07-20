@@ -15,10 +15,13 @@ MODULE2PREFIX = {}
 {%- endif %}
 
 
-def read(fname):
-    return io.open(
+def read(fname, slice=None):
+    content = io.open(
         os.path.join(os.path.dirname(__file__), fname),
         'r', encoding='utf-8').read()
+    if slice:
+        content = '\n'.join(content.splitlines()[slice])
+    return content
 
 
 def get_require_version(name):
