@@ -99,8 +99,9 @@ setup(name=name,
     keywords='{{ cookiecutter.keywords }}',
     package_dir={'trytond.modules.{{ cookiecutter.module_name }}': '.'},
     packages=(
-        ['trytond.modules.{{ cookiecutter.module_name }}'] +
-        ['trytond.modules.{{ cookiecutter.module_name }}.%s' % p for p in find_packages()]
+        ['trytond.modules.{{ cookiecutter.module_name }}']
+        + ['trytond.modules.{{ cookiecutter.module_name }}.%s' % p
+            for p in find_packages()]
         ),
     package_data={
         'trytond.modules.{{ cookiecutter.module_name }}': (info.get('xml', [])
@@ -114,7 +115,8 @@ setup(name=name,
         'Intended Audience :: Developers',
         'Intended Audience :: Financial and Insurance Industry',
         'Intended Audience :: Legal Industry',
-        'License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)',
+        'License :: OSI Approved :: '
+        'GNU General Public License v3 or later (GPLv3+)',
         'Natural Language :: Bulgarian',
         'Natural Language :: Catalan',
         'Natural Language :: Chinese (Simplified)',
@@ -148,7 +150,7 @@ setup(name=name,
     entry_points="""
     [trytond.modules]
     {{ cookiecutter.module_name }} = trytond.modules.{{ cookiecutter.module_name }}
-    """,
+    """,  # noqa: E501
     test_suite='tests',
     test_loader='trytond.test_loader:Loader',
     tests_require=tests_require,

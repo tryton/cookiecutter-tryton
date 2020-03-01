@@ -4,7 +4,7 @@
 
 {% endif -%}
 try:
-    from trytond.modules.{{ cookiecutter.module_name }}.tests.test_{{ cookiecutter.module_name }} import suite
+    from trytond.modules.{{ cookiecutter.module_name }}.tests.test_{{ cookiecutter.module_name }} import suite  # noqa: E501
 except ImportError:
     from .test_{{ cookiecutter.module_name }} import suite
 
