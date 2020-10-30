@@ -78,7 +78,7 @@ tests_require = []
 {%- endif %}
 dependency_links = []
 if minor_version % 2:
-    dependency_links.append('https://trydevpi.tryton.org/{% if cookiecutter.prefix %}?mirror=bitbucket{% endif %}')
+    dependency_links.append('https://trydevpi.tryton.org/{% if cookiecutter.prefix %}?mirror=github{% endif %}')
 
 setup(name=name,
     version=version,
