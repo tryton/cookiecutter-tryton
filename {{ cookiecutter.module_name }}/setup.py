@@ -53,15 +53,19 @@ if minor_version % 2:
     download_url = (
         'hg+http://hg.tryton.org/modules/%s#egg=%s-%s' % (
             name[8:], name, version))
+{% endif %}
 local_version = []
 if os.environ.get('CI_JOB_ID'):
     local_version.append(os.environ['CI_JOB_ID'])
 else:
     for build in ['CI_BUILD_NUMBER', 'CI_JOB_NUMBER']:
-        local_version.append(os.environ.get(build, ''))
+        if os.environ.get(build):
+            local_version.append(os.environ[build])
+        else:
+            local_version = []
+            break
 if local_version:
     version += '+' + '.'.join(local_version)
-{% endif %}
 requires = []
 for dep in info.get('depends', []):
     if not re.match(r'(ir|res)(\W|$)', dep):
@@ -80,7 +84,10 @@ tests_require = []
 {%- endif %}
 dependency_links = []
 if minor_version % 2:
-    dependency_links.append('https://trydevpi.tryton.org/{% if cookiecutter.prefix %}?mirror=github{% endif %}')
+    dependency_links.append(
+        'https://trydevpi.tryton.org/?local_version='
+        + '.'.join(local_version)
+        {% if cookiecutter.prefix %}+ '&mirror=github'{% endif %})
 
 setup(name=name,
     version=version,
