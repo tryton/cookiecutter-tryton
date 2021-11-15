@@ -77,7 +77,7 @@ for dep in info.get('depends', []):
 {%- endif %}
 requires.append(get_require_version('trytond'))
 
-{% if cookiecutter.test_with_scenario == 'y' -%}
+{% if cookiecutter.test_with_scenario -%}
 tests_require = [get_require_version('proteus')]
 {%- else -%}
 tests_require = []
