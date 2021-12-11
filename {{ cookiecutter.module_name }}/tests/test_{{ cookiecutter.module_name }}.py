@@ -2,18 +2,19 @@
 # This file is part of Tryton.  The COPYRIGHT file at the top level of
 # this repository contains the full copyright notices and license terms.
 
-{% endif -%}
-import unittest
-{% if cookiecutter.test_with_scenario %}
+{%- endif %}
+{%- if cookiecutter.test_with_scenario %}
 import doctest
 {%- endif %}
+import unittest
 
-from trytond.tests.test_tryton import ModuleTestCase
-from trytond.tests.test_tryton import suite as test_suite
 {%- if cookiecutter.test_with_scenario %}
-from trytond.tests.test_tryton import doctest_teardown
-from trytond.tests.test_tryton import doctest_checker
+from trytond.tests.test_tryton import (
+    ModuleTestCase, doctest_checker, doctest_teardown)
+{% else %}
+from trytond.tests.test_tryton import ModuleTestCase
 {%- endif %}
+from trytond.tests.test_tryton import suite as test_suite
 
 
 class {{ cookiecutter.module_name.replace('_', ' ').title().replace(' ', '') }}TestCase(ModuleTestCase):
