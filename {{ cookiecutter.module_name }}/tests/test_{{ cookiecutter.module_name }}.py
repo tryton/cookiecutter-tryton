@@ -8,12 +8,12 @@ import doctest
 {%- endif %}
 import unittest
 
-{%- if cookiecutter.test_with_scenario %}
+{% if cookiecutter.test_with_scenario -%}
 from trytond.tests.test_tryton import (
     ModuleTestCase, doctest_checker, doctest_teardown)
-{% else %}
+{% else -%}
 from trytond.tests.test_tryton import ModuleTestCase
-{%- endif %}
+{% endif -%}
 from trytond.tests.test_tryton import suite as test_suite
 
 
