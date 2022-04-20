@@ -7,7 +7,7 @@ from trytond.tests.test_tryton import ModuleTestCase
 
 
 class {{ cookiecutter.module_name.replace('_', ' ').title().replace(' ', '') }}TestCase(ModuleTestCase):
-    'Test {{ cookiecutter.module_name.replace('_', ' ').title() }} module'
+    "Test {{ cookiecutter.module_name.replace('_', ' ').title() }} module"
     module = '{{ cookiecutter.module_name }}'
 
 
