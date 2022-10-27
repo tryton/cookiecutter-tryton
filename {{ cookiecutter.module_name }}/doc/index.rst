@@ -7,3 +7,4 @@
 
    usage
    design
+   releases
